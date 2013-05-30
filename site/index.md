@@ -4,3 +4,4 @@ Welcome to ECE 382!
 
  * [Lesson Notes](/notes)
  * [Labs](/labs)
+ * [Datasheets](/datasheets)

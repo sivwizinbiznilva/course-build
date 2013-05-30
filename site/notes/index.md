@@ -1,9 +1,9 @@
 # Lesson Notes
 
-- [Lesson 1](/notes/lesson1.html)
-- [Lesson 2](/notes/lesson2.html)
-- [Lesson 3](/notes/lesson3.html)
-- [Lesson 4](/notes/lesson4.html)
+- [Lesson 1](/notes/lesson1.html) - Course Introduction. Introduction to the MSP430.
+- [Lesson 2](/notes/lesson2.html) - Programming Model. MSP430 Instruction Set & Execution.
+- [Lesson 3](/notes/lesson3.html) - Addressing Modes. ComEx 1 Introduction.
+- [Lesson 4](/notes/lesson4.html) - CompEx 1 - Introduction to the MSP430 and CodeComposer
 - [Lesson 5](/notes/lesson5.html)
 - [Lesson 6](/notes/lesson6.html)
 - [Lesson 7](/notes/lesson7.html)
