@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' type='text/css' href='/stylesheets/bootstrap.min.css'>
+        <script src='/js/bootstrap.min.js'></script>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "navbar navbar-inverse">
+                <div class = "navbar-inner">
+                    <a class = "brand" href="#">ECE382</a>
+                    <ul class = "nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/notes">Notes</a></li>
+                        <li><a href="/labs">Labs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <%- markdown %>
+        </div>
+    </body>
+</html>

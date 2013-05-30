@@ -1,0 +1,17 @@
+{
+  "name": "ECE382",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+        "marked": "latest"
+        , "ejs": "latest"
+        , "node-static": "latest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
