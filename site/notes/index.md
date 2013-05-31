@@ -1,5 +1,7 @@
 # Lesson Notes
 
+- [Course Goals](course_goals)
+- [Foreword](foreword)
 - [Lesson 1](L1) - Course Introduction. Introduction to the MSP430.
 - [Lesson 2](L2) - Programming Model. MSP430 Instruction Set & Execution.
 - [Lesson 3](L3) - Addressing Modes. ComEx 1 Introduction.
