@@ -3,6 +3,7 @@ var marked = require('marked')
     , path = require('path')
     , ejs = require('ejs')
     , template = ejs.compile(fs.readFileSync('template.ejs', { encoding: 'ascii' }))
+    , config = require('./config')
 
 var parseMarkdownRecursive = function(directory) {
     var files = fs.readdirSync(directory);
@@ -13,7 +14,7 @@ var parseMarkdownRecursive = function(directory) {
         switch (path.extname(files[i])) {
             case '.md':
                 var markdown = marked(fs.readFileSync(currentFile, { encoding: 'ascii' }));
-                var html = template({markdown: markdown, title: 'ECE382'});
+                var html = template({markdown: markdown, title: 'ECE382', styleServer: config.styleServer});
                 fs.writeFileSync( directory + '/' + path.basename(currentFile, '.md') + '.html', html);
                 break;
             case '':
