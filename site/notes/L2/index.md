@@ -11,11 +11,11 @@
 
 ### Architecture
 Any architecture will consist of:
-    - set of operations (instructions)
-    - data units (sizes, addressing modes, etc)
-    - registers
-    - interaction with memory
-    - program counter
+- set of operations (instructions)
+- data units (sizes, addressing modes, etc)
+- registers
+- interaction with memory
+- program counter
 
 #### Assembly Language
 - To command a computer, you must understand its language:
