@@ -2,9 +2,9 @@
 
 - [Course Goals](course_goals)
 - [Foreword](foreword)
-- [Lesson 1](L1) - Course Introduction. Introduction to the MSP430.
-- [Lesson 2](L2) - Programming Model. MSP430 Instruction Set & Execution.
-- [Lesson 3](L3) - Addressing Modes. ComEx 1 Introduction.
+- [Lesson 1](L1/) - Course Introduction. Architecture vs Microarchitecture.
+- [Lesson 2](L2) - Intro to the MSP430.  Machine Language.  MSP430 Programming Model.
+- [Lesson 3](L3) - MSP430 Instruction Set and Execution.
 - [Lesson 4](L4) - CompEx 1 - Introduction to the MSP430 and CodeComposer
 - [Lesson 5](L5)
 - [Lesson 6](L6)

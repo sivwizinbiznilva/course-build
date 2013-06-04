@@ -18,7 +18,8 @@ var parseMarkdownRecursive = function(directory) {
                 fs.writeFileSync( directory + '/' + path.basename(currentFile, '.md') + '.html', html);
                 break;
             case '':
-                parseMarkdownRecursive(currentFile);
+                if (fs.statSync(currentFile).isDirectory() == true)
+                    parseMarkdownRecursive(currentFile);
                 break;
             default:
                 //do nothing
@@ -27,4 +28,6 @@ var parseMarkdownRecursive = function(directory) {
     }
 }
 
+console.log('building...')
 parseMarkdownRecursive('./site');
+console.log('built')
