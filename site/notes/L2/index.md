@@ -28,6 +28,9 @@ Any architecture will consist of:
 **Machine vs Assembly**  
 Talk about compilation, assembly, linking process
 
+In semesters past, we've spent a lot of time working directly with assembly.  A lot of people complained that it's irrelevant - could not be farther from the truth.  Every single program that runs on your computer followed this process.  Every single program becomes assembly code.
+[Demo - disassemble 'ls' command and show x86_64 assembly]
+
 #### MSP430 Architecture
 A simple MSP430 program
 ```
