@@ -1,4 +1,0 @@
-# Admin
-
-- Syllabus
-- Course Policies
