@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-        "marked": "latest"
+        "public": "git+https://github.com/toddbranch/marked.git"
         , "ejs": "latest"
         , "node-static": "latest"
   },

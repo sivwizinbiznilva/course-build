@@ -1,11 +1,19 @@
-var marked = require('marked')
+var marked = require('/home/toddbranch/marked')
     , fs = require('fs')
     , path = require('path')
     , ejs = require('ejs')
-    , template = ejs.compile(fs.readFileSync('template.ejs', { encoding: 'ascii' }))
+    , template_382 = ejs.compile(fs.readFileSync('template_382.ejs', { encoding: 'ascii' }))
+    , template_SummerSeminar = ejs.compile(fs.readFileSync('template_SummerSeminar.ejs', { encoding: 'ascii' }))
+    , template_main = ejs.compile(fs.readFileSync('template_main.ejs', { encoding: 'ascii' }))
     , config = require('./config')
 
-var parseMarkdownRecursive = function(directory) {
+var parseMarkdownSingleFile = function(file, template, title) {
+    var markdown = marked(fs.readFileSync(file, { encoding: 'ascii' }));
+    var html = template({markdown: markdown, title: title});
+    fs.writeFileSync(path.dirname(file) + '/' + path.basename(file, '.md') + '.html', html);
+}
+
+var parseMarkdownRecursive = function(directory, template, title) {
     var files = fs.readdirSync(directory);
 
     for (var i = 0; i < files.length; i++) {
@@ -13,13 +21,11 @@ var parseMarkdownRecursive = function(directory) {
 
         switch (path.extname(files[i])) {
             case '.md':
-                var markdown = marked(fs.readFileSync(currentFile, { encoding: 'ascii' }));
-                var html = template({markdown: markdown, title: 'ECE382', styleServer: config.styleServer});
-                fs.writeFileSync( directory + '/' + path.basename(currentFile, '.md') + '.html', html);
+                parseMarkdownSingleFile(currentFile, template, title);
                 break;
             case '':
                 if (fs.statSync(currentFile).isDirectory() == true)
-                    parseMarkdownRecursive(currentFile);
+                    parseMarkdownRecursive(currentFile, template, title);
                 break;
             default:
                 //do nothing
@@ -28,6 +34,13 @@ var parseMarkdownRecursive = function(directory) {
     }
 }
 
-console.log('building...')
-parseMarkdownRecursive('./site');
-console.log('built')
+console.log('building 382...');
+parseMarkdownRecursive('./site/ECE382', template_382, "ECE382");
+console.log('382 built');
+
+console.log('building Summer Seminar...');
+parseMarkdownRecursive('./site/SummerSeminar', template_SummerSeminar, "Summer Seminar");
+console.log('SummerSeminar built');
+
+console.log('building front page');
+parseMarkdownSingleFile('./site/index.md', template_main, "Courses");
