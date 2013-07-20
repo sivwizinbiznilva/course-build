@@ -5,7 +5,6 @@ var marked = require('/home/toddbranch/marked')
     , template_382 = ejs.compile(fs.readFileSync('template_382.ejs', { encoding: 'ascii' }))
     , template_SummerSeminar = ejs.compile(fs.readFileSync('template_SummerSeminar.ejs', { encoding: 'ascii' }))
     , template_main = ejs.compile(fs.readFileSync('template_main.ejs', { encoding: 'ascii' }))
-    , config = require('./config')
 
 var parseMarkdownSingleFile = function(file, template, title) {
     var markdown = marked(fs.readFileSync(file, { encoding: 'ascii' }));
