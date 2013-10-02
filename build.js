@@ -34,7 +34,7 @@ var parseMarkdownRecursive = function(directory, template, title) {
 }
 
 console.log('building 382...');
-parseMarkdownRecursive('./site/ECE382', template_382, "ECE382");
+parseMarkdownRecursive('./site/ECE382', template_382, "Embedded Systems I (ECE 382 at USAFA) - Using the MSP430");
 console.log('382 built');
 
 console.log('building Summer Seminar...');
