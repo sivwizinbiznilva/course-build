@@ -6,9 +6,34 @@ var marked = require('/home/toddbranch/marked')
     , template_SummerSeminar = ejs.compile(fs.readFileSync('template_SummerSeminar.ejs', { encoding: 'ascii' }))
     , template_main = ejs.compile(fs.readFileSync('template_main.ejs', { encoding: 'ascii' }))
 
+var extractTitleIfExists = function(fullTitleStringArray) {
+    var pageTitle = "";
+
+    if (fullTitleStringArray)
+    {
+        var splitTitleStringArray = fullTitleStringArray[0].split("'");
+        var pageTitle = splitTitleStringArray[1];
+    }
+
+    return pageTitle;
+}
+
 var parseMarkdownSingleFile = function(file, template, title) {
-    var markdown = marked(fs.readFileSync(file, { encoding: 'ascii' }));
-    var html = template({markdown: markdown, title: title});
+    var rawText = fs.readFileSync(file, { encoding: 'ascii' });
+    
+    var fullTitleStringArray = rawText.match(/title = '.+'/gi);
+
+    var pageTitle = extractTitleIfExists(fullTitleStringArray);
+
+    if (pageTitle !== "")
+    {
+        title += " - " + pageTitle;
+        rawText = rawText.replace(fullTitleStringArray[0],"");
+    }
+
+    var markdown = marked(rawText);
+
+    var html = template({markdown: markdown, title: title });
     fs.writeFileSync(path.dirname(file) + '/' + path.basename(file, '.md') + '.html', html);
 }
 
@@ -34,7 +59,7 @@ var parseMarkdownRecursive = function(directory, template, title) {
 }
 
 console.log('building 382...');
-parseMarkdownRecursive('./site/ECE382', template_382, "Embedded Systems I (ECE 382 at USAFA) - Using the MSP430");
+parseMarkdownRecursive('./site/ECE382', template_382, "ECE 382");
 console.log('382 built');
 
 console.log('building Summer Seminar...');
