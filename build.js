@@ -3,6 +3,7 @@ var marked = require('/home/toddbranch/marked')
     , path = require('path')
     , ejs = require('ejs')
     , template_382 = ejs.compile(fs.readFileSync('template_382.ejs', { encoding: 'ascii' }))
+    , template_383 = ejs.compile(fs.readFileSync('template_383.ejs', { encoding: 'ascii' }))
     , template_SummerSeminar = ejs.compile(fs.readFileSync('template_SummerSeminar.ejs', { encoding: 'ascii' }))
     , template_main = ejs.compile(fs.readFileSync('template_main.ejs', { encoding: 'ascii' }))
 
@@ -61,6 +62,10 @@ var parseMarkdownRecursive = function(directory, template, title) {
 console.log('building 382...');
 parseMarkdownRecursive('./site/ECE382', template_382, "ECE 382");
 console.log('382 built');
+
+console.log('building 383...');
+parseMarkdownRecursive('./site/ECE383', template_383, "ECE 383");
+console.log('383 built');
 
 console.log('building Summer Seminar...');
 parseMarkdownRecursive('./site/SummerSeminar', template_SummerSeminar, "Summer Seminar");
