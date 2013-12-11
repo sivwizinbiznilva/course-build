@@ -1,4 +1,4 @@
-var marked = require('/home/toddbranch/marked')
+var marked = require('marked')
     , fs = require('fs')
     , path = require('path')
     , ejs = require('ejs')
