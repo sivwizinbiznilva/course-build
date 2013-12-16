@@ -6,7 +6,6 @@
   "dependencies": {
         "public": "git+https://github.com/toddbranch/marked.git"
         , "ejs": "latest"
-        , "node-static": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
