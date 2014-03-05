@@ -64,21 +64,15 @@ function build(coursePath, templatePath, course_id)
     parseMarkdownRecursive(coursePath, template, course_id);
   } else
   {
-    showFormat();
+    console.log("Either the course path or template path do not exist.");
   }
 }
 
 var args = process.argv;
 
 if (args.length != 5)
-  showFormat();
+  console.log("Format is <node course_path template_path course_id>");
 else
 {
   build(args[2], args[3], args[4]);
-}
-
-function showFormat()
-{
-
-  console.log("Format is <node course_path template_path course_id>");
 }
