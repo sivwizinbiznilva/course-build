@@ -2,10 +2,6 @@ var marked = require('marked')
     , fs = require('fs')
     , path = require('path')
     , ejs = require('ejs')
-    , template_382 = ejs.compile(fs.readFileSync('template_382.ejs', { encoding: 'ascii' }))
-    , template_383 = ejs.compile(fs.readFileSync('template_383.ejs', { encoding: 'ascii' }))
-    , template_SummerSeminar = ejs.compile(fs.readFileSync('template_SummerSeminar.ejs', { encoding: 'ascii' }))
-    , template_main = ejs.compile(fs.readFileSync('template_main.ejs', { encoding: 'ascii' }))
 
 var extractTitleIfExists = function(fullTitleStringArray) {
     var pageTitle = "";
@@ -59,17 +55,30 @@ var parseMarkdownRecursive = function(directory, template, title) {
     }
 }
 
-console.log('building 382...');
-parseMarkdownRecursive('./site/ECE382', template_382, "ECE 382");
-console.log('382 built');
+function build(coursePath, templatePath, course_id)
+{
+  if (fs.existsSync(templatePath) && fs.existsSync(coursePath))
+  {
+    course_id = course_id || "";
+    var template = ejs.compile(fs.readFileSync(templatePath, { encoding: 'ascii' }));
+    parseMarkdownRecursive(coursePath, template, course_id);
+  } else
+  {
+    showFormat();
+  }
+}
 
-console.log('building 383...');
-parseMarkdownRecursive('./site/ECE383', template_383, "ECE 383");
-console.log('383 built');
+var args = process.argv;
 
-console.log('building Summer Seminar...');
-parseMarkdownRecursive('./site/SummerSeminar', template_SummerSeminar, "Summer Seminar");
-console.log('SummerSeminar built');
+if (args.length != 5)
+  showFormat();
+else
+{
+  build(args[2], args[3], args[4]);
+}
 
-console.log('building front page');
-parseMarkdownSingleFile('./site/index.md', template_main, "Courses");
+function showFormat()
+{
+
+  console.log("Format is <node course_path template_path course_id>");
+}
