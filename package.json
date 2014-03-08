@@ -1,17 +1,14 @@
 {
-  "name": "ECE382",
+  "name": "course_build",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
-        "public": "git+https://github.com/toddbranch/marked.git"
-        , "ejs": "latest"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    , "start": "node build.js; node server.js"
+    "public": "git+https://github.com/toddbranch/marked.git"
+    , "ejs": "latest"
+    , "metalsmith": "latest"
   },
   "repository": "",
-  "author": "",
+  "author": "Todd Branchflower",
   "license": "BSD"
 }
