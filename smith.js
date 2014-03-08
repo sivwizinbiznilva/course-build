@@ -20,7 +20,7 @@ function build(coursePath, templatePath, course_id)
     course_id = course_id || "";
 
     Metalsmith(coursePath)
-              .use(marked)
+              .use(myMarked)
               .use(templates('ejs'))
               .build();
   } else
@@ -28,3 +28,6 @@ function build(coursePath, templatePath, course_id)
     console.log("Either the course path or template path do not exist.");
   }
 }
+
+function myMarked(files, metalsmith, done) {
+};
