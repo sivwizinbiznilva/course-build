@@ -21,7 +21,7 @@ function build(coursePath, templatePath, course_id)
 
     Metalsmith(coursePath)
               .use(myMarked)
-              .use(templates('ejs'))
+              .use(template)
               .build();
   } else
   {
@@ -30,4 +30,27 @@ function build(coursePath, templatePath, course_id)
 }
 
 function myMarked(files, metalsmith, done) {
+
+  for (var file in files) {
+    var content = files[file].content;
+    content = marked(content);
+    files[file].content = content;
+  }
+
+  done();
+
+};
+
+function template(files, metalsmith, done) {
+
+  var template = ejs.compile(fs.readFileSync('./template.ejs'
+    , { encoding: 'ascii' }));
+
+  for (var file in files) {
+    var html = template({markdown: markdown, title: title });
+    files[file].content = html;
+    console.log(html);
+  }
+
+  done();
 };
