@@ -28,7 +28,10 @@ var parseMarkdownSingleFile = function(file, template, title) {
         rawText = rawText.replace(fullTitleStringArray[0],"");
     }
 
-    var markdown = marked(rawText);
+    var markdown = marked(rawText, {highlight: function(code) {
+   	return require('highlight.js').highlightAuto(code).value;
+   	}
+    });			
 
     var html = template({markdown: markdown, title: title });
     fs.writeFileSync(path.dirname(file) + '/' + path.basename(file, '.md') + '.html', html);
