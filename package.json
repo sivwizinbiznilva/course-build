@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-        "public": "git+https://github.com/toddbranch/marked.git"
-        , "ejs": "latest"
+    "ejs": "^1.0.0",
+    "marked": "^0.3.2",
+    "public": "git+https://github.com/toddbranch/marked.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    , "start": "node build.js; node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node build.js; node server.js"
   },
   "repository": "",
   "author": "",
