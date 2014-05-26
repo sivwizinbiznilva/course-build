@@ -28,7 +28,7 @@ var parseMarkdownSingleFile = function(file, template, title) {
         rawText = rawText.replace(fullTitleStringArray[0],"");
     }
 
-    var markdown = marked(rawText, {highlight: function(code) {
+    var markdown = marked(rawText, {gfm: true, tables: true, breaks: true, highlight: function(code) {
    	return require('highlight.js').highlightAuto(code).value;
    	}
     });			
